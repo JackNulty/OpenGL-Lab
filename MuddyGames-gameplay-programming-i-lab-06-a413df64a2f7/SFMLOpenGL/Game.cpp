@@ -43,6 +43,10 @@ void Game::initialize()
 void Game::update()
 {
 	cout << "Update up" << endl;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+	{
+		window.close();
+	}
 }
 
 void Game::draw()
@@ -50,11 +54,37 @@ void Game::draw()
 	cout << "Draw up" << endl;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glBegin(GL_TRIANGLES); {
-		glVertex3f(0.0, 2.0, -5.0);
-		glVertex3f(-2.0, -2.0, -5.0);
-		glVertex3f(2.0, -2.0, -5.0);
+		glVertex3f(0.0, 1.0, -5.0);
+		glVertex3f(-1.0, -1.0, -5.0);
+		glVertex3f(1.0, -1.0, -5.0);
 	}
 	glEnd();
+	glLineWidth(6);
+	glBegin(GL_LINES); {
+		glColor3f(0.0f, 1.0f, 0.0f);
+		glVertex3f(-1.0f, 1.0f ,-5.0f);
+		glVertex3f(1.0f, 1.0f ,-5.0f);
+	}
+	glEnd();
+	glBegin(GL_LINE_STRIP); {
+		glVertex3f(-1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 2.0f, -5.0f);
+	}
+	glEnd();
+	glBegin(GL_LINE_LOOP); {
+		glVertex3f(-1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 2.0f, -5.0f);
+	}
+	glEnd();
+	glBegin(GL_TRIANGLE_FAN); { // the tumor
+		glVertex3f(0.0, 1.0, -5.0);
+		glVertex3f(-1.0, -1.0, -5.0);
+		glVertex3f(1.0, -1.0, -5.0);
+		
+		glVertex3f(2.0, -2.0, -5.0);
+	}
 	window.display();
 }
 
