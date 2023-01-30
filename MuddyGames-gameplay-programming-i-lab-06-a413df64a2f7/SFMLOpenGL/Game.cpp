@@ -73,9 +73,9 @@ void Game::draw()
 	}
 	glEnd();
 	glBegin(GL_LINE_LOOP); {
-		glVertex3f(-1.0f, 1.0f, -5.0f);
-		glVertex3f(1.0f, 1.0f, -5.0f);
-		glVertex3f(1.0f, 2.0f, -5.0f);
+		glVertex3f(-1.1f, 1.1f, -5.0f);
+		glVertex3f(1.1f, 1.1f, -5.0f);
+		glVertex3f(1.1f, 2.1f, -5.0f);
 	}
 	glEnd();
 	glBegin(GL_TRIANGLE_FAN); { // the tumor
@@ -84,6 +84,14 @@ void Game::draw()
 		glVertex3f(1.0, -1.0, -5.0);
 		
 		glVertex3f(2.0, -2.0, -5.0);
+	}
+	glEnd();
+	glBegin(GL_QUADS); {
+		glColor3f(1.0f, 1.0f, 0.0f);
+		glVertex3f(1.0f, 1.0f, -10.0f);
+		glVertex3f(-1.0f, 1.0f, -10.0f);
+		glVertex3f(1.0f, -1.0f, -10.0f);
+		glVertex3f(-1.0f, -1.0f, -10.0f);
 	}
 	window.display();
 }
